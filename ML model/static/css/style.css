@@ -1,0 +1,10 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+}
+h1, h2 {
+    font-weight: 700;
+}
+footer {
+    margin-top: 3rem;
+}

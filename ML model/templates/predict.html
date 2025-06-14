@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Make a Prediction</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">{{ form.age.label }} {{ form.age(class="form-control") }}</div>
+    <div class="mb-3">{{ form.weight.label }} {{ form.weight(class="form-control") }}</div>
+    <div class="mb-3">{{ form.height.label }} {{ form.height(class="form-control") }}</div>
+    <div class="mb-3">{{ form.income_lpa.label }} {{ form.income_lpa(class="form-control") }}</div>
+    <div class="mb-3">{{ form.smoker.label }} {{ form.smoker(class="form-control") }}</div>
+    <div class="mb-3">{{ form.city.label }} {{ form.city(class="form-control") }}</div>
+    <div class="mb-3">{{ form.occupation.label }} {{ form.occupation(class="form-control") }}</div>
+    <div class="mb-3">{{ form.submit(class="btn btn-success") }}</div>
+</form>
+
+{% if prediction %}
+<hr>
+<h4>Prediction: {{ prediction }}</h4>
+<p>Confidence: {{ confidence }}</p>
+{% if probabilities %}
+    <ul>
+    {% for label, prob in probabilities.items() %}
+        <li>{{ label }}: {{ prob }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+{% endif %}
+{% endblock %}
